@@ -15,6 +15,12 @@ class Conta(abc.ABC):
 
     def detalhes(self, msg: str='') -> None:
         print(f'O seu saldo é {self.saldo:.2f} {msg}')
+        print('--')
+
+    def __repr__(self):
+        class_name = type(self).__name__
+        attrs = f'({self.agencia!r}, {self.conta!r}, {self.saldo!r}, {self.limite!r})'
+        return f'{class_name}{attrs}'        
 
 class ContaPoupanca(Conta):
 
